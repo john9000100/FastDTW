@@ -60,13 +60,13 @@ abstract public class SearchWindow
    }
 
 
-   public final int minJ()
+   public int minJ()
    {
       return 0;
    }
 
 
-   public final int maxJ()
+   public int maxJ()
    {
       return maxJ;
    }
