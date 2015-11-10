@@ -93,7 +93,7 @@ abstract public class SearchWindow
    // Iterates through all cells in the search window in the order that Dynamic
    //    Time Warping needs to evaluate them. (first to last column (0..maxI),
    //    bottom up  (o..maxJ))
-   public final Iterator iterator()
+   public Iterator iterator()
    {
       return new SearchWindowIterator(this);
    }
@@ -135,7 +135,7 @@ abstract public class SearchWindow
    }
 
 
-   private final void expandSearchWindow(int radius)
+   protected void expandSearchWindow(int radius)
    {
       if (radius > 0)  // if radius <=0 then no search is necessary, use the current search window
       {
@@ -312,18 +312,18 @@ abstract public class SearchWindow
 
 
    // A private class that is a fail-fast iterator through the search window.
-   private final class SearchWindowIterator implements Iterator
+   protected class SearchWindowIterator implements Iterator
    {
       // PRIVATE DATA
-      private int currentI;
-      private int currentJ;
+      protected int currentI;
+      protected int currentJ;
       private final SearchWindow window;
       private boolean hasMoreElements;
       private final int expectedModCount;
 
 
       // CONSTRUCTOR
-      private SearchWindowIterator(SearchWindow w)
+      protected SearchWindowIterator(SearchWindow w)
       {
          // Intiialize values
          window = w;
